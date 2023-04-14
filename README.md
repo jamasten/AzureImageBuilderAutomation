@@ -15,7 +15,6 @@ The following resources are deployed with this solution:
   - Modules
   - Runbook
   - Schedule
-  - Webhook
 - Role Definitions
 - Role Assignments
 - Schedule Query Rules
