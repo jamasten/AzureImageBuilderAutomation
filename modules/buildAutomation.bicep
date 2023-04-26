@@ -7,24 +7,24 @@ param LogAnalyticsWorkspaceResourceId string
 param Time string = utcNow()
 param TimeZone string
 
-
 var EnvironmentName = environment().name
 var ImageTemplateName = split(ImageTemplateResourceId, '/')[8]
 var ImageTemplateResourceGroupName = split(ImageTemplateResourceId, '/')[4]
 var Modules = [
   {
     name: 'Az.Accounts'
-    uri: 'https://www.powershellgallery.com/api/v2/package/Az.Accounts'
+    uri: 'https://www.powershellgallery.com/api/v2/package'
+    version: '2.12.1'
   }
   {
     name: 'Az.ImageBuilder'
-    uri: 'https://www.powershellgallery.com/api/v2/package/Az.ImageBuilder'
+    uri: 'https://www.powershellgallery.com/api/v2/package'
+    version: '0.3.0'
   }
 ]
 var Runbook = 'AIB-BuildAutomation'
 var SubscriptionId = subscription().subscriptionId
 var TenantId = subscription().tenantId
-
 
 resource automationAccount 'Microsoft.Automation/automationAccounts@2021-06-22' = {
   name: AutomationAccountName
@@ -47,6 +47,7 @@ resource modules 'Microsoft.Automation/automationAccounts/modules@2019-06-01' = 
   properties: {
     contentLink: {
       uri: Module.uri
+      version: Module.version
     }
   }
 }]
@@ -119,6 +120,5 @@ resource diagnostics 'Microsoft.Insights/diagnosticsettings@2017-05-01-preview' 
     workspaceId: LogAnalyticsWorkspaceResourceId
   }
 }
-
 
 output principalId string = automationAccount.identity.principalId

@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.16.2.56959",
-      "templateHash": "14614752813782249774"
+      "templateHash": "5077560229888967207"
     }
   },
   "parameters": {
@@ -428,7 +428,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.16.2.56959",
-              "templateHash": "9094089014340271930"
+              "templateHash": "7807261245326332571"
             }
           },
           "parameters": {
@@ -466,11 +466,13 @@
             "Modules": [
               {
                 "name": "Az.Accounts",
-                "uri": "https://www.powershellgallery.com/api/v2/package/Az.Accounts"
+                "uri": "https://www.powershellgallery.com/api/v2/package",
+                "version": "2.12.1"
               },
               {
                 "name": "Az.ImageBuilder",
-                "uri": "https://www.powershellgallery.com/api/v2/package/Az.ImageBuilder"
+                "uri": "https://www.powershellgallery.com/api/v2/package",
+                "version": "0.3.0"
               }
             ],
             "Runbook": "AIB-BuildAutomation",
@@ -505,7 +507,8 @@
               "location": "[parameters('Location')]",
               "properties": {
                 "contentLink": {
-                  "uri": "[variables('Modules')[copyIndex()].uri]"
+                  "uri": "[variables('Modules')[copyIndex()].uri]",
+                  "version": "[variables('Modules')[copyIndex()].version]"
                 }
               },
               "dependsOn": [
