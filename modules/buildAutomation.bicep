@@ -13,12 +13,10 @@ var ImageTemplateResourceGroupName = split(ImageTemplateResourceId, '/')[4]
 var Modules = [
   {
     name: 'Az.Accounts'
-    uri: 'https://www.powershellgallery.com/api/v2/package'
     version: '2.12.1'
   }
   {
     name: 'Az.ImageBuilder'
-    uri: 'https://www.powershellgallery.com/api/v2/package'
     version: '0.3.0'
   }
 ]
@@ -46,7 +44,7 @@ resource modules 'Microsoft.Automation/automationAccounts/modules@2019-06-01' = 
   location: Location
   properties: {
     contentLink: {
-      uri: Module.uri
+      uri: 'https://devopsgallerystorage.blob.${environment().suffixes.storage}:443/packages/${toLower(Module.name)}.${Module.version}.nupkg'
       version: Module.version
     }
   }

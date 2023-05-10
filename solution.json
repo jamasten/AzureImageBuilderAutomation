@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.16.2.56959",
-      "templateHash": "5077560229888967207"
+      "version": "0.17.1.54307",
+      "templateHash": "12706749611070456718"
     }
   },
   "parameters": {
@@ -178,8 +178,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.16.2.56959",
-              "templateHash": "3696674006868573074"
+              "version": "0.17.1.54307",
+              "templateHash": "17976696161185702126"
             }
           },
           "parameters": {
@@ -243,8 +243,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.16.2.56959",
-              "templateHash": "8121260681746293053"
+              "version": "0.17.1.54307",
+              "templateHash": "7575467746612004971"
             }
           },
           "parameters": {
@@ -427,8 +427,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.16.2.56959",
-              "templateHash": "7807261245326332571"
+              "version": "0.17.1.54307",
+              "templateHash": "4121124989246112791"
             }
           },
           "parameters": {
@@ -466,12 +466,10 @@
             "Modules": [
               {
                 "name": "Az.Accounts",
-                "uri": "https://www.powershellgallery.com/api/v2/package",
                 "version": "2.12.1"
               },
               {
                 "name": "Az.ImageBuilder",
-                "uri": "https://www.powershellgallery.com/api/v2/package",
                 "version": "0.3.0"
               }
             ],
@@ -507,7 +505,7 @@
               "location": "[parameters('Location')]",
               "properties": {
                 "contentLink": {
-                  "uri": "[variables('Modules')[copyIndex()].uri]",
+                  "uri": "[format('https://devopsgallerystorage.blob.{0}:443/packages/{1}.{2}.nupkg', environment().suffixes.storage, toLower(variables('Modules')[copyIndex()].name), variables('Modules')[copyIndex()].version)]",
                   "version": "[variables('Modules')[copyIndex()].version]"
                 }
               },
