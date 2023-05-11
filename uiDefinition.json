@@ -197,7 +197,7 @@
                 "ImageTemplateResourceId": "[steps('basics').existingResources.imageTemplate.id]",
                 "LogAnalyticsWorkspaceResourceId": "[if(steps('basics').enableMonitoring, steps('basics').existingResources.logAnalyticsWorkspace.id, '')]",
                 "ResourceGroupName": "[steps('basics').existingResources.resourceGroup]",
-                "Tags": "[if(equals(steps('tags').customTags, parse('[{\"name\":\"\",\"value\":\"\"}]')), parse('{}'), parse(replace(replace(replace(replace(string(map(steps('tags').customTags, (item) => parse(concat('{\"', item.name, '\": \"', item.value, '\"}')))), '{', ''), '}', ''), '[', '{'), ']', '}'))]"
+                "Tags": "[if(equals(steps('tags').customTags, parse('[{\"name\":\"\",\"value\":\"\"}]')), parse('{}'), parse(replace(replace(replace(replace(string(map(steps('tags').customTags, (item) => parse(concat('{\"', item.name, '\": \"', item.value, '\"}')))), '{', ''), '}', ''), '[', '{'), ']', '}')))]"
             },
             "kind": "Subscription",
             "location": "[steps('basics').resourceScope.location.name]",
