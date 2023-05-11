@@ -7,7 +7,7 @@ param (
 	[string]$Location,
 
     [Parameter(Mandatory)]
-	[string]$ResourceGroupName,
+	[string]$ResourceGroupName
 )
 
 New-AzTemplateSpec `
