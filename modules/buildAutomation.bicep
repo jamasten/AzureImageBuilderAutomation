@@ -44,7 +44,7 @@ resource modules 'Microsoft.Automation/automationAccounts/modules@2019-06-01' = 
   location: Location
   properties: {
     contentLink: {
-      uri: 'https://devopsgallerystorage.blob.${environment().suffixes.storage}:443/packages/${toLower(Module.name)}.${Module.version}.nupkg'
+      uri: 'https://www.powershellgallery.com/api/v2/package/${toLower(Module.name)}.${Module.version}.nupkg'
       version: Module.version
     }
   }
