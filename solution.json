@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.17.1.54307",
-      "templateHash": "13206031871663305050"
+      "templateHash": "10205559487022340896"
     }
   },
   "parameters": {
@@ -428,7 +428,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.17.1.54307",
-              "templateHash": "6706507407132606894"
+              "templateHash": "1932918644260916324"
             }
           },
           "parameters": {
@@ -505,7 +505,7 @@
               "location": "[parameters('Location')]",
               "properties": {
                 "contentLink": {
-                  "uri": "[format('https://www.powershellgallery.com/api/v2/package/{0}.{1}.nupkg', toLower(variables('Modules')[copyIndex()].name), variables('Modules')[copyIndex()].version)]",
+                  "uri": "[format('https://www.powershellgallery.com/api/v2/package/{0}/{1}', variables('Modules')[copyIndex()].name, variables('Modules')[copyIndex()].version)]",
                   "version": "[variables('Modules')[copyIndex()].version]"
                 }
               },
